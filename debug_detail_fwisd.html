@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html>
+<head id="ctl00_Head1"><link href="App_Themes/Proc/v3/Ajax.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Calendar.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/FontIcons/flaticon.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Grid.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Input.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Menu.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Scheduler.Proc.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/Support.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Proc/v3/TabStrip.Proc.css" type="text/css" rel="stylesheet" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="robots" content="noindex" /><title>
+	Fort Worth ISD eBid
+</title>
+	<style type="text/css">
+		.TelerikModalOverlayTO {
+			filter: progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=95) !important;
+			opacity: .95 !important;
+			-moz-opacity: .95 !important;
+			z-index: 9999;
+		}
+
+		#divPageMainWrapper {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+		}
+
+		#divPageMain {
+			flex-grow: 1;
+			overflow-y: auto;
+			overflow-x: auto;
+			padding: 5px 5px 25px 5px;
+		}
+	</style>
+	
+		<script type="text/javascript">
+
+			//Will redirect window to the passed in path
+			function RedirectTo(path) {
+				window.location = path;
+			}
+
+			//Will refresh current page by re-requesting the current url
+			function RefreshPage() {
+				window.location = 'https://fwisd.ionwave.net/PublicDetail.aspx?bidID=1476\u0026SourceType=1';
+			}
+
+			//function OpenRadWindowCaptcha(inUrl) {
+			//	var oWnd = $find("< % = rwPopUpCaptcha.ClientID %>");
+			//	oWnd.setUrl(inUrl);
+			//	oWnd.show();
+			//	oWnd.maximize();
+			//}
+
+			function OnClientClose(sender, args) {
+				document.location.reload();
+			}
+
+			function OnClientClose(sender, args) {
+				document.location.reload();
+			}
+
+			// Allow spaces to be entered on the commodity search textbox
+			function clientLoad(sender) {
+				$telerik.$("input", sender.get_element()).on('keydown', function (e) {
+					if (!e) var e = window.event;
+					e.cancelBubble = true;
+					if (e.stopPropagation) e.stopPropagation();
+				});
+			}
+
+			function clientShow(sender, args) {
+				if ($telerik.isChrome) {
+					sender.get_contentFrame().style.width = "";
+					setTimeout(function () {
+						sender.get_contentFrame().style.width = "100%";
+					}, 0);
+				}
+			}
+		</script>
+	
+	<style type="text/css">
+#menubar, #menubarHelp, #profileMenuBar
+{
+background-color: #1D517F;
+background-image: none;
+border-top-color: #1D517F;
+border-right-color: #1D517F;
+border-bottom-color: #1D517F;
+}
+div#menubarLogo
+{
+background-color: #1D517F;
+}
+div.RadMenu_Proc
+{
+background-color: #1D517F;
+background-image: none;
+border-right-color: #1D517F;
+}
+div.RadMenu_Proc .rmLink
+{
+background-color: #1D517F;
+background-image: none;
+border-left-color: #1D517F;
+color: #FFFFFF;
+}
+div.RadMenu_Proc .rmGroup
+{
+background-color: #1D517F !important;
+}
+.rptHeader
+{
+background-color:#1D517F;
+color:#FFFFFF;
+}
+h1, h2, td.h2
+{
+border-color:#FBB045;
+}
+[class^='flaticon-mainMenu_']:before, [class*=' flaticon-mainMenu_']:before,
+[class^='flaticon-mainMenu_']:after, [class*=' flaticon-mainMenu_']:after
+{
+color: #FFFFFF;
+}
+[class^='flaticon-toolbar_']:before, [class*=' flaticon-toolbar_']:before,
+[class^='flaticon-toolbar_']:after, [class*=' flaticon-toolbar_']:after
+{
+color: #1D517F;
+}
+[class^='flaticon-grid_']:before, [class*=' flaticon-grid_']:before,
+[class^='flaticon-grid_']:after, [class*=' flaticon-grid_']:after
+{
+color: #FBB045;
+}
+.rgEdit:enabled > .rgEditIcon:after, .rgCancel:enabled > .rgCancelIcon:after, .rgUpdate:enabled > .rgUpdateIcon:after, .rgDel:enabled > .rgDelIcon:after
+{
+color: #FBB045 !important;
+}
+[class^='flaticon-docType_']:before, [class*=' flaticon-docType_']:before,
+[class^='flaticon-docType_']:after, [class*=' flaticon-docType_']:after
+{
+color: #1D517F;
+}
+[class^='flaticon-inline_']:before, [class*=' flaticon-inline_']:before,
+[class^='flaticon-inline_']:after, [class*=' flaticon-inline_']:after
+{
+color: #FBB045;
+}
+[class^='flaticon-fieldAction_']:before, [class*=' flaticon-fieldAction_']:before,
+[class^='flaticon-fieldAction_']:after, [class*=' flaticon-fieldAction_']:after
+{
+color: #FBB045;
+}
+[class^='flaticon-contextMenu_']:before, [class*=' flaticon-contextMenu_']:before,
+[class^='flaticon-contextMenu_']:after, [class*=' flaticon-contextMenu_']:after
+{
+color: #FBB045;
+}
+.buttonPrimary
+{
+background-color:#1D517F !important;
+border-color:#1D517F !important;
+}
+.buttonPrimary:hover:not(.rbDisabled)
+{
+background-color:#FBB045 !important;
+border-color:#FBB045 !important;
+}
+.buttonStandard
+{
+background-color:white !important;
+color:#1D517F !important;
+border-color:#1D517F !important;
+}
+.buttonStandard:hover:not(.rbDisabled)
+{
+background-color:white !important;
+color:#FBB045 !important;
+border-color:#FBB045 !important;
+}
+.buttonStandard.RadButton > .rbSplitPart
+{
+color:#1D517F !important;
+}
+.buttonStandard.RadButton:hover > .rbSplitPart, .buttonStandard.RadButton > .rbSplitPart:hover
+{
+color:#FBB045 !important;
+}
+.RadCalendar_Material .rcTitlebar, .RadCalendar_Material.rcPrev, .RadCalendar_Material.rcNext, .RadCalendar_Material.rcFastPrev, .RadCalendar_Material.rcFastNext
+{
+border-color:#1D517F !important;
+background-color:#1D517F !important;
+color:#FFFFFF !important;
+}
+.RadGrid_Proc { border-color: #FBB045 !important; }
+.RadGrid_Proc .rgHeader, .RadGrid_Proc th.rgResizeCol, .RadGrid_Proc th.rgSorted { border-bottom-color: #FBB045 !important; }
+.RadGrid_Proc .rgRow td, .RadGrid_Proc .rgAltRow td { border-top-color: #FBB045 !important; }
+.RadTabStrip_Proc .rtsLink
+{
+.RadTabStrip_Proc .rtsSelected, .RadTabStrip_Proc .rtsLast .rtsSelected
+{
+border-bottom-color: white;
+}
+</style>
+
+	<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-33168174-2']);
+_gaq.push(['_setDomainName', 'ionwave.net']);
+_gaq.push(['_trackPageview', '/PublicDetail.aspx']);
+(function () {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4NYWTSNZ2P"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4NYWTSNZ2P', {page_location: 'https://fwisd.ionwave.net/PublicDetail.aspx'});</script>
+	<style type="text/css">
+		.rptWrapperItem {
+			border: solid 1px #000000;
+			color: #000000;
+			vertical-align: top;
+		}
+
+		.rptItem {
+			background-color: #FFFFFF;
+			color: #000000;
+			vertical-align: top;
+		}
+
+		.rptAltItem {
+			background-color: #F4F4F4;
+			color: #000000;
+			vertical-align: top;
+		}
+	</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" /><link href="/WebResource.axd?d=_h3tqqHoL_scwqSdjPRDX7O2kMEhe3PIDw5TOXq1ouKESPAm5GLL0Ss2-TTRCtz57uTbozKCkUX6M2apRZC1HSp2LKLUP64C7Pd-KW5CXLiIzaBSWBj7Dr8uZH9EN1eKTawhHGw3QMBMzuWZMxmZhg2&amp;t=639190911840000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=ISQ2nTkDyQ6UApHxVmBsh8k8aC-sIyK2bLURA1t5Mw9H9SE2MMAo6giV4y6rFXGjXzYCf4R7QPAEd1-_rGkol_j5p7o_ukQJQACcH0cZAWDbtBlpgytMX10rOW0iRe7yS57OuZjoALAYzPcw1fo6hI38abWQDhgdXgrYwg_e_y01&amp;t=639190911840000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body style="overflow: auto; min-width: 1050px;">
+	<div id="overDiv" style="position: absolute; visibility: hidden; z-index: 1000;"></div>
+	<form method="post" action="./PublicDetail.aspx?bidID=1476&amp;SourceType=1" id="aspnetForm" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="ctl00_ScriptManager_TSM" id="ctl00_ScriptManager_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZJPr2k25angMO4awhtK5XjYxJ_iizFZYTXESeXRu55iKO2VaYhnaDv6qOPA8JgIGtg2&amp;t=638901356248157332" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+const APP_INSIGHTS_ENABLED=false;//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvugheA-hufiLx9kbN4Jlqu5rkKfhD4EMInQys2Qpj1Sz0r3zQr9-l0CklXsGRekKCvOuELJf73919iQAhfk3fsYr4Cf203DtHVELC-K1QBUx_wSWNnezyhKxoXUMk-5_z2-J2UItmfPjGXf0GVGRm4I1&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OJ9soJVOJCKfm3YmA6zFsGJrir1J6pskA31SwIrzDcHW0Qr_m4ztj46osjYDIhAdUKsHEjrc3SFToGHcZ5LV7zyuGPpr2YpusIes7uVV6jbP3WtkqwSHzZyN4dIw2aLMYEQF_IPaO1Nc3O0cZ0q9-MQ1&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="JavaScript/input.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=TDVjdgRbdvNAY3tnbizUcAW7Sh0-gIu7AedUypKlxDjDvZG88ZgBC29EjPOmriSY1HRLX2Ykd8YmbKwxceifDs3yUo8tRgwv-68R0M0UIrE7bHso2HlL1FA5rCIxBD-50&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=mbGZm65DzNC0tMTq0ElbcYlpBgUKTSrh_kIXka-mPZ7T2Y1ziKhVIFeNrFNDvlYwbxuIJyFpjLr8JoBlcyZkt93sokigKIqFKzvb3Z6E6KRSONsjM567iF8myhjU7VJi_Gn8ksSFWy1TDxJsIeqq_w2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=cmIcXiVJ__exjjpjrN730uZVEt4NjcyGAGJCcGC-sPNUQWXfQ75ZiY26NqDeoApul58dLbmluiOSfvYpRslxddA8KkFyeMuJdCqXhkQFg5-hmwcn1hqyr51WmLBFCsPeNiG7a--E_vS14dnTKyCCyw2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=aoSSiMnLNTC20U5L7LFIKhluoA2fAkafvTV_bhzsEmO-fwAtunXT1Al1gwu52fNPbkB3xIX4fYMj-xYqdKXZDN5OOLcZ98D2lNsJoV7k0PG1uxTajlXvLI2J30NkL6AaqVjv-Y4CLKwNb6FPt1bkmR5qh6J50wSp2s4c9nhsqJc1&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=eKZhdBAoDXLAsQys5JFN8ucBkoNMvjKFsBond6RfG8CK4r8qdIO3ZMZFtTJ2ZBJOz3x2cDCv8oi9kTefvPLFfI3M2UxOEHPoayQBApSPB5AONriu1ekD3CZqH4hKgaF4OsDUXsoYZaaDMFO4UJ4ARzpjTD2PowCEXXl77Z5rdOQ1&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=uZyysmNAhs23bID72ZUaSvfnFKvC7xvwe6SiVsU9vNscCLxuTUW_6rjxMVUM1EJVOhA0VYUUPnp7UiZ3lwLt8zxb9PW-Pfk5JKkXZ9VZDJfXHqXOmmZgOmM6kPWPQe7_cO1Ui1xn5AXPygjW0LaCdfyvMPiD7K1UzCBKCahP5381&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=86EhAqQjfuMKlbK4FWyenA7ol18m67XDcV5DY1Me1DrJajRvUNpwfnraMU9ZGrDsZRUbEs-gZwn_hCkgKuSeXoVuWsdStcSaICOLimB2H5SMEZNPZFp6cZfbS_-0ogBx-Ui6bL9_OOOr0ZrInanjwvseFe8IRiC57w6LOwPtZE81&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=azZWDlPjvGQFzPBzbd9C4LgpPedtz6cr8RHElOtnQGJonEbvwR8znFGq47TJ7xgjOB-gEmkeEAgtbLx1O7GjghSoauDepEPcaSw6E4VRt3hxnCcR6mIhAubzAWp2U4BO-s-i_LlEUXcmByQk0Hi_DQ2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=aIiHoxEdKJSiEcFhKx_o0CaqRORvxrY5TelpF1Tggki7gVqwT8PjcHX5QsrqSvT8Cwr6lZqbgXcB19d0EaOCj5RvZLIH24arIqfFYv5vpiYPMEyE4UKaQqdwXyBIWqbak_QqFZ_x5vA1crNJNSG0vQ2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=jsREEuQJotslNUdHnktdpmfuRQ2ZrJQ8Zwrw8-56i1ezmFU9xk_uMShb_fFG_BUsgvzhgJLrk2-2_xOhEYQlLSyd4VrWL73wfoza8TvwPwIz6A7FRers9UDcCOKoRSoUiscbQaSUytK76gKRNMCk7A2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-9rjE8XFv-zikiBdee7RrkHwpAgy0t7e-HLvp3NhSfFl8keiDgHvNipD_UN_9vJMr-9zP0yfkmf91BiEAljCwGwRelUBce91RELiTCw6rvPtMPlvvJw6fnYXdHV5vf9rTCruy2Xs_UmFthrZt-9Q-k3Ff-lUt0IjUMlLwceKPzk1&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=utaAJrK4EroNO-KNr3p19JLHxeTPXsjnEnkYF22hjGY6-QtY7mQmZo1CKuhS8aM7_v9HFCwvbur1KIqr5fsz_DI27rflmwlye1Uy7EGk3aEKBAsinDRMroAZji0yJElM-AcynxZHTJAiJthYzWfWWA2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=GiyGg6C7coGF_0YjOubjHdEZ0RYq8lTD9nAjc7T4Szgw5fYZ2vuvc_i7JPx-phZG3Ao4dIu0BeI24-MXStNsCZUh0NUI-YB10QSg3UKKAwbPi5F8wPljcDS7IXESIfKva9fHU0eScHQ6ILccAkgNBg2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=VxtOoXYuGZUEZcJ30xmYHpjBZ0PP9tqGbOBrkVQspXa7avJsY65aRutxSBOyPnOFdtaoxzEpyppTwjTzyk77nM_Ct_e5TfQusD1VZrOxMvLvlPAw3ZiuoKMmswy6-QCkZIamrJrU9ukS8yH0_fbaMA2&amp;t=52eb609d" type="text/javascript"></script>
+<script src="utility/SessionHelper.asmx/js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="29397C1C" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div>
+		<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+		
+
+		
+	<style type="text/css">
+		.RadCaptcha span {
+			color: black;
+			font-size: large;
+		}
+
+		.RadCaptcha {
+			width: 200px;
+			background-color: #F0F0F0;
+			padding: 10px;
+			border: 1px dotted #606060;
+			font-family: Serif;
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+			font-size: large;
+		}
+	</style>
+	
+	<div id="ctl00_mainContent_pnlDetail">
+	
+		<div style="padding: 0px 5px 0px 5px;">
+			<div id="ctl00_mainContent_divHeader">
+				<img src="https://fwisd.ionwave.net/_custconfig/fwisd/PageHeaderLogo.png?brs=26071505473108" id="ctl00_mainContent_imgLogo" />
+				<div style="text-align: right; vertical-align: top; padding-bottom: 10px; white-space: nowrap; padding-left: 6px; padding-right: 6px; float: right;">
+					<a href="Login.aspx" id="ctl00_mainContent_lnkLogin" class="header">Login</a>
+				</div>
+			</div>
+			<h1>Bid Opportunity Detail</h1>
+			
+			<div id="ctl00_mainContent_rtb" class="RadToolBar RadToolBar_Horizontal RadToolBar_Default RadToolBar_Default_Horizontal" style="width:100%;z-index:9000;">
+		<!-- 2026.2.708.462 --><div class="rtbOuter">
+			<div class="rtbMiddle">
+				<div class="rtbInner">
+					<ul class="rtbUL">
+						<li class="rtbItem rtbBtn"><a class="rtbWrap" href="#"><span class="rtbOut"><span class="rtbMid"><span class="rtbIn"><span title="" class="rtbIcon flaticon-toolbar_Return"></span><span class="rtbText">Return to Listing</span></span></span></span></a></li><li class="rtbItem rtbBtn"><a class="rtbWrap" href="#"><span class="rtbOut"><span class="rtbMid"><span class="rtbIn"><span title="" class="rtbIcon flaticon-toolbar_Supplier"></span><span class="rtbText">Supplier Registration</span></span></span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div><input id="ctl00_mainContent_rtb_ClientState" name="ctl00_mainContent_rtb_ClientState" type="hidden" />
+	</div>
+			<table>
+				<tr>
+					<td style="vertical-align: top; width: 50%;">
+						<h2>Bid Information</h2>
+						<table>
+							<tr>
+								<td class="fieldLabel" style="width: 125px;">Type</td>
+								<td class="fieldValue">
+									<span id="ctl00_mainContent_lblType">Request For Proposal</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="fieldLabel">Status</td>
+								<td class="fieldValue">
+									<span id="ctl00_mainContent_lblStatus">Issued</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="fieldLabel">Number</td>
+								<td class="fieldValue">
+									<span id="ctl00_mainContent_lblNumber">26-070-A (General Retail Merchandise,Groceries,Supplies,Equipment and Services)</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="fieldLabel">Issue Date & Time</td>
+								<td class="fieldValue">
+									<span id="ctl00_mainContent_lblIssue">6/2/2026 02:00:03 PM (CT)</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="fieldLabel">Close Date & Time</td>
+								<td class="fieldValue">
+									<span id="ctl00_mainContent_lblClose">7/16/2026 02:00:00 PM (CT)</span>
+								</td>
+							</tr>
+							<tr id="ctl00_mainContent_rowQuestionCutoff">
+		<td class="fieldLabel">Question Cut Off Date</td>
+		<td class="fieldValue">
+									<span id="ctl00_mainContent_lblQuestionCutoff">7/2/2026 02:00:00 PM (CT)</span>
+								</td>
+	</tr>
+	
+							
+							<tr id="ctl00_mainContent_trTimeLeft">
+		<td class="fieldLabel">Time Left</td>
+		<td class="fieldValue">
+									<span id="spCountdown">1 day 8 hours 12 minutes 27 seconds</span>
+								</td>
+	</tr>
+	
+							<tr id="ctl00_mainContent_trNotes">
+		<td class="fieldLabel">Notes</td>
+		<td class="fieldValue">
+									<span id="ctl00_mainContent_lblNotes">The Fort Worth Independent School District is accepting RFP's (Request for Proposals) for&nbsp;<strong>General Retail Merchandise, Groceries, Supplies, Equipment and Services</strong>&nbsp;that will be purchased on an "as needed" basis.<br>
+<br>
+The period of performance is from <strong>date of award to 06/30/2031</strong>. All purchase orders dated and issued will be subject to the terms and conditions of this RFP. <br>
+<br>
+It is the intent of this Solicitation to establish a discount from shelf pricing contract. Proposers should indicate a primary discount (even if the discount is "0%" or shelf price), but may offer multiple discounts by category and/or total purchase. These items will normally be purchased in small quantities on an "As Needed" basis by 125+ campuses and departments throughout the city of Fort Worth and Tarrant County.</span>
+								</td>
+	</tr>
+	
+						</table>
+					</td>
+					<td style="vertical-align: top; padding-left: 30px; width: 50%;">
+						<h2>Contact Information</h2>
+						<div>
+							
+						</div>
+						<table id="ctl00_mainContent_tblContact">
+		<tr>
+			<td class="fieldLabel" style="width: 125px;">Name</td>
+			<td class="fieldValue">
+									<span id="ctl00_mainContent_lblName">Edwin Grimes</span>
+								</td>
+		</tr>
+		<tr>
+			<td class="fieldLabel">Address</td>
+			<td class="fieldValue">
+									<span id="ctl00_mainContent_lblAddress"><br/>TX USA</span>
+								</td>
+		</tr>
+		<tr>
+			<td class="fieldLabel">Phone</td>
+			<td class="fieldValue">
+									<span id="ctl00_mainContent_lblPhone">(817) 814 x2206</span>
+								</td>
+		</tr>
+		<tr>
+			<td class="fieldLabel">Fax</td>
+			<td class="fieldValue">
+									<span id="ctl00_mainContent_lblFax"></span>
+								</td>
+		</tr>
+		<tr>
+			<td class="fieldLabel">Email</td>
+			<td class="fieldValue">
+									<span id="ctl00_mainContent_lblEmail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3c59584b5552125b4e5551594f7c5a4b554f5812534e5b">[email&#160;protected]</a></span>
+								</td>
+		</tr>
+	</table>
+	
+					</td>
+				</tr>
+			</table>
+			
+			
+			<div id="ctl00_mainContent_divBidDocuments">
+				<h2>Bid Documents</h2>
+				<div id="ctl00_mainContent_rgBidDocuments" class="RadGrid RadGrid_Proc">
+
+	<table class="rgMasterTable" id="ctl00_mainContent_rgBidDocuments_ctl00" style="width:100%;table-layout:auto;empty-cells:show;">
+		<colgroup>
+        <col  />
+        <col  />
+        <col style="display:none;" />
+        <col style="display:none;" />
+    </colgroup>
+<thead>
+			<tr>
+				<th scope="col" class="rgHeader" style="white-space:nowrap;">Document name</th><th scope="col" class="rgHeader" style="white-space:nowrap;">Format</th><th scope="col" class="rgHeader" style="white-space:nowrap;display:none;"><a onclick="Telerik.Web.UI.Grid.Sort($find(&#39;ctl00_mainContent_rgBidDocuments_ctl00&#39;), &#39;FormType&#39;); return false;" title="Click here to sort" href="javascript:__doPostBack(&#39;ctl00$mainContent$rgBidDocuments$ctl00$ctl02$ctl01$ctl00&#39;,&#39;&#39;)"></a></th><th scope="col" class="rgHeader" style="white-space:nowrap;display:none;"><a onclick="Telerik.Web.UI.Grid.Sort($find(&#39;ctl00_mainContent_rgBidDocuments_ctl00&#39;), &#39;NewBidRequestParameterID&#39;); return false;" title="Click here to sort" href="javascript:__doPostBack(&#39;ctl00$mainContent$rgBidDocuments$ctl00$ctl02$ctl01$ctl01&#39;,&#39;&#39;)"></a></th>
+			</tr>
+		</thead><tfoot>
+			<tr class=" rgPager">
+				<td colspan="2"><table summary="Data pager which controls on which page is the RadGrid control." style="width:100%;border-spacing:0;">
+					<caption>
+						<span style='display: none'>Data pager</span>
+					</caption><thead>
+						<tr>
+							<th scope="col">Data pager</th>
+						</tr>
+					</thead><tbody>
+						<tr>
+							<td class="rgPagerCell NextPrevAndNumeric"><div class="rgWrap rgArrPart1">
+								<input type="submit" name="ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$ctl02" value=" " onclick="return false;" title="First Page" class="rgPageFirst" /><input type="submit" name="ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$ctl03" value=" " onclick="return false;" title="Previous Page" class="rgPagePrev" />
+							</div><div class="rgWrap rgNumPart">
+								<a onclick="return false;" class="rgCurrentPage" href="javascript:__doPostBack(&#39;ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$ctl05&#39;,&#39;&#39;)"><span>1</span></a>
+							</div><div class="rgWrap rgArrPart2">
+								<input type="submit" name="ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$ctl08" value=" " onclick="return false;" title="Next Page" class="rgPageNext" /><input type="submit" name="ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$ctl09" value=" " onclick="return false;" title="Last Page" class="rgPageLast" />
+							</div><div class="rgWrap rgAdvPart">
+								<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_ChangePageSizeLabel" class="rgPagerLabel">Page size:</span><div id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox" class="RadComboBox RadComboBox_Proc" style="width:46px;white-space:normal;">
+									<table summary="Page Size Drop Down Control" style="border-width:0;border-collapse:collapse;width:100%">
+										<caption>
+											PageSizeComboBox
+										</caption><tr class="rcbReadOnly">
+											<td class="rcbInputCell rcbInputCellLeft" style="width:100%;"><input name="ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$PageSizeComboBox" type="text" class="rcbInput radPreventDecorate" id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_Input" value="15" readonly="readonly" /></td><td class="rcbArrowCell rcbArrowCellRight"><a id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_Arrow" style="overflow: hidden;display: block;position: relative;outline: none;">select</a></td>
+										</tr>
+									</table><div class="rcbSlide" style="z-index:6000;display:none;"><div id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_DropDown" class="RadComboBoxDropDown RadComboBoxDropDown_Proc "><div class="rcbScroll rcbWidth"><ul class="rcbList"><li class="rcbItem">10</li><li class="rcbItem">15</li><li class="rcbItem">20</li><li class="rcbItem">50</li></ul></div></div></div><input id="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState" name="ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState" type="hidden" />
+								</div>
+							</div><div class="rgWrap rgInfoPart">
+								 &nbsp;<strong>2</strong> items in <strong>1</strong> pages
+							</div></td>
+						</tr>
+					</tbody>
+				</table></td>
+			</tr>
+		</tfoot><tbody>
+		<tr class="rgRow" valign="top" id="ctl00_mainContent_rgBidDocuments_ctl00__0">
+			<td style="width:85%;">
+									<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl04_lblRestrictedFileName">Bid Invitation</span>&nbsp;<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl04_lblRestricted">(please login to view this document)</span>
+								</td><td style="width:15%;">
+									<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl04_lblFormatName">Acrobat</span>&nbsp;/&nbsp;<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl04_lblFormatType">PDF</span>&nbsp;<img id="ctl00_mainContent_rgBidDocuments_ctl00_ctl04_imgFormat" src="images/icons/doctype_PDF.png" />
+								</td><td style="display:none;">BINVAVL</td><td style="display:none;">9422689</td>
+		</tr><tr class="rgAltRow" valign="top" id="ctl00_mainContent_rgBidDocuments_ctl00__1">
+			<td style="width:85%;">
+									<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl06_lblRestrictedFileName">Public Question &amp; Answer</span>&nbsp;<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl06_lblRestricted">(please login to view this document)</span>
+								</td><td style="width:15%;">
+									<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl06_lblFormatName">Acrobat</span>&nbsp;/&nbsp;<span id="ctl00_mainContent_rgBidDocuments_ctl00_ctl06_lblFormatType">PDF</span>&nbsp;<img id="ctl00_mainContent_rgBidDocuments_ctl00_ctl06_imgFormat" src="images/icons/doctype_PDF.png" />
+								</td><td style="display:none;">BINVAVL</td><td style="display:none;">9422689</td>
+		</tr>
+		</tbody>
+
+	</table><div id="ctl00_mainContent_rgBidDocuments_SharedCalendarContainer" style="display:none;">
+
+	</div><input id="ctl00_mainContent_rgBidDocuments_ClientState" name="ctl00_mainContent_rgBidDocuments_ClientState" type="hidden" />    </div>
+	
+			</div>
+			
+			<div id="ctl00_mainContent_divQuestions">
+				
+				<h2>Bid Questions</h2>
+				
+				<div id="ctl00_mainContent_divOnlinePublicQuestionsExist">
+					
+							<table style="width: 100%;">
+								
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="fieldValue">
+												Does this solicitation cover computer equipment, peripherals, printers, and cybersecurity software supplied on an as-needed catalog-discount basis, or is technology procured under a separate FWISD contract?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="fieldValue">No, There will be a Technology RFP opportunity sometime in the near future.</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="fieldValue">7/1/2026 01:36:02 PM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptAltItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="rptAltItem">
+												We operate mobile snow cone trucks and are already a vendor in the system.  Do we need to reapply under this eBid opportunity?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="rptAltItem"><div>If you are awarded under 26-070&nbsp;<span>General Retail Merchandise, Groceries,Supplies, Equipment and Services this RFP expires 06/30/2031</span></div><br /><div>You do not have to respond to the&nbsp; 26-070-A</div></td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="rptAltItem">6/30/2026 04:11:06 PM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="fieldValue">
+												Will orders be delivered to the warehouse or will orders be delivered to various schools within the district?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="fieldValue"><div>It will be various locations including District Service Center, Warehouse, School locations, and The Learning Center.</div><br /><div>&nbsp;</div></td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="fieldValue">6/30/2026 09:12:20 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptAltItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="rptAltItem">
+												HI there we run a vending machine company KBV and was wondering does this apply to the award sent
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="rptAltItem">No, Vending machines are not part of this scope of work.</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="rptAltItem">6/25/2026 11:27:41 PM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="fieldValue">
+												We provide theatrical costume and puppet rentals. Would this bid apply to us?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="fieldValue">No, There is an awarded RFP for&nbsp;<span style="background-color: #ffffff; color: #444444;">theatrical supplies and equipment</span></td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="fieldValue">6/25/2026 11:09:45 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptAltItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="rptAltItem">
+												We are an OMNIA Partner Vendor so do you still require us to respond to this RFP to be a vendor for the School District?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="rptAltItem">FWISD would prefer for responses to our RFP, however, it would be a decision for the vendor to make.</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="rptAltItem">6/19/2026 10:00:20 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="fieldValue">
+												Per Attribute 9	SCOPE OF WORK<br />The scope of work, conditions, and specifications are listed in an attachment. I agree to the scope of work, conditions, and specifications of this bid/proposal. <br /><br />Where is the attachment located?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="fieldValue"><div>There is not an attachment. The Scope of work is in attribute 9.</div><br /><div>This is a catalog RFP.&nbsp;&nbsp;</div></td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="fieldValue">6/18/2026 11:31:17 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptAltItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="rptAltItem">
+												Could this bid include marching band and guard products?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="rptAltItem">No, the RFP 26-061 Theatrical-Fine arts/Band/Orchestra/Choir covered these items</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="rptAltItem">6/18/2026 11:29:46 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="fieldValue">
+												Hello! Can you confirm contract term period? Thank you.
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="fieldValue">Date of award to 06/30/2031 is the contract period for this catalog RFP</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="fieldValue">6/18/2026 10:16:01 AM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							<tr>
+								<td class="rptWrapperItem">
+									<table style="width: 100%;" class="rptAltItem">
+										<tr>
+											<td class="fieldLabel">Question</td>
+											<td style="width: 100%;" class="rptAltItem">
+												Does this bid include playground equipment and/or fitness equipment? Can we get clarification on what equipment is included for this bid?
+											</td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Answer</td>
+											<td style="width: 100%;" class="rptAltItem"><div>No, This RFP covers a catalog bid general retail items.</div><br /><div>Playground and PE equipment had their own RFP opportunities&nbsp;</div></td>
+										</tr>
+										<tr>
+											<td class="fieldLabel">Submitted</td>
+											<td style="width: 100%;" class="rptAltItem">6/11/2026 12:08:02 PM (CT)</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 3px;"></td>
+							</tr>
+						
+							</table>
+						
+				</div>
+				<table style="width: 100%;">
+					<tr>
+						<td class="MenuBar" style="width: 50%; white-space: nowrap;">
+							<span id="ctl00_mainContent_lblShowingQuestions" style="font-size:Larger;">Items 1 - 10 shown of 15 • Page 1 of 1 shown</span>
+						</td>
+						<td class="MenuBar" style="text-align: right; width: 50%; font-size: larger;">
+							<span id="ctl00_mainContent_dpQuestions"><a class="aspNetDisabled">First</a>&nbsp;<a class="aspNetDisabled"><</a>&nbsp;<span>1</span>&nbsp;<a href="javascript:__doPostBack(&#39;ctl00$mainContent$dpQuestions$ctl01$ctl01&#39;,&#39;&#39;)">2</a>&nbsp;<a href="javascript:__doPostBack(&#39;ctl00$mainContent$dpQuestions$ctl02$ctl00&#39;,&#39;&#39;)">></a>&nbsp;<a href="javascript:__doPostBack(&#39;ctl00$mainContent$dpQuestions$ctl02$ctl01&#39;,&#39;&#39;)">Last</a>&nbsp;</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			
+			
+			
+			
+		</div>
+		
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+			var countStepper = -1;
+			var countActive = true;
+
+			function calcTimeLeft(secs, num1, num2) {
+				return ((Math.floor(secs / num1)) % num2).toString();
+			}
+
+			function countBack(secs) {
+				if (secs < 0) {
+					document.getElementById("spCountdown").innerHTML = "<span class='msgError'>Closed</span>";
+					return;
+				}
+
+				var timeDisplay = "";
+				var days = calcTimeLeft(secs, 86400, 100000);
+				var hours = calcTimeLeft(secs, 3600, 24);
+				var minutes = calcTimeLeft(secs, 60, 60);
+				var seconds = calcTimeLeft(secs, 1, 60);
+
+				if (days > 0) {
+					timeDisplay += days + " days ";
+				}
+				if (hours > 0) {
+					timeDisplay += hours + " hours ";
+				}
+				if (minutes > 0) {
+					timeDisplay += minutes + " minutes ";
+				}
+				if (seconds > 0) {
+					timeDisplay += seconds + " seconds ";
+				}
+				if (days == 0) {
+					timeDisplay = "<span class='errorText'>" + timeDisplay + "</span>";
+				}
+
+				document.getElementById("spCountdown").innerHTML = timeDisplay;
+				if (countActive) {
+					setTimeout("countBack(" + (secs + countStepper) + ")", SetTimeOutPeriod);
+				}
+			}
+
+			countStepper = Math.ceil(countStepper);
+			if (countStepper == 0) {
+				countActive = false;
+			}
+
+			var SetTimeOutPeriod = (Math.abs(countStepper) - 1) * 1000 + 990;
+			var dthen = new Date('7/16/2026 2:00:00 PM');
+			var dnow = new Date('7/15/2026 5:47:32 AM');
+
+			if (countStepper > 0) {
+				ddiff = new Date(dnow - dthen);
+			} else {
+				ddiff = new Date(dthen - dnow);
+			}
+
+			countBack(Math.floor(ddiff.valueOf() / 1000));
+		</script>
+		
+</div>
+
+
+	
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl00_ScriptManager_TSM');
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadToolBar, {"_cssClass":"","_postBackReference":"__doPostBack(\u0027ctl00$mainContent$rtb\u0027,\u0027{0}\u0027)","_simplePostBack":true,"_skin":"Default","attributes":{},"clientStateFieldID":"ctl00_mainContent_rtb_ClientState","collapseAnimation":"{\"duration\":450}","expandAnimation":"{\"duration\":450}","itemData":[{"value":"LISTING","cssClass":"rtbWrap","spriteCssClass":"flaticon-toolbar_Return","enableImageSprite":true},{"value":"REGISTRATION","cssClass":"rtbWrap","spriteCssClass":"flaticon-toolbar_Supplier","enableImageSprite":true}]}, null, null, $get("ctl00_mainContent_rtb"));
+});
+
+var callBackFrameUrl='/WebResource.axd?d=beToSAE3vdsL1QUQUxjWda6K2zVtQLPAQUjphaJSkOzbk0Ku_PzW-1exbsEIi2MSaXf0z9S5Cbte9xSdzr7f9w2&t=638901356248157332';
+WebForm_InitCallback();Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadComboBox, {"_dropDownWidth":0,"_height":0,"_skin":"Proc","_text":"15","_uniqueId":"ctl00$mainContent$rgBidDocuments$ctl00$ctl03$ctl01$PageSizeComboBox","_value":"15","clientStateFieldID":"ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState","collapseAnimation":"{\"duration\":450}","expandAnimation":"{\"duration\":450}","itemData":[{"value":"10","attributes":{"ownerTableViewId":"ctl00_mainContent_rgBidDocuments_ctl00"}},{"value":"15","selected":true,"attributes":{"ownerTableViewId":"ctl00_mainContent_rgBidDocuments_ctl00"}},{"value":"20","attributes":{"ownerTableViewId":"ctl00_mainContent_rgBidDocuments_ctl00"}},{"value":"50","attributes":{"ownerTableViewId":"ctl00_mainContent_rgBidDocuments_ctl00"}}],"localization":"{\"AllItemsCheckedString\":\"All items checked\",\"ItemsCheckedString\":\"items checked\",\"CheckAllString\":\"Check All\"}","selectedIndex":1}, {"selectedIndexChanged":Telerik.Web.UI.Grid.ChangePageSizeComboHandler,"selectedIndexChanging":Telerik.Web.UI.Grid.ChangingPageSizeComboHandler}, null, $get("ctl00_mainContent_rgBidDocuments_ctl00_ctl03_ctl01_PageSizeComboBox"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadGrid, {"ClientID":"ctl00_mainContent_rgBidDocuments","ClientSettings":{"AllowAutoScrollOnDragDrop":true,"ShouldCreateRows":true,"DataBinding":{},"Selecting":{"CellSelectionMode":0},"Scrolling":{},"Resizing":{},"ClientMessages":{},"KeyboardNavigationSettings":{"AllowActiveRowCycle":false,"EnableKeyboardShortcuts":true,"FocusKey":89,"InitInsertKey":73,"RebindKey":82,"ExitEditInsertModeKey":27,"UpdateInsertItemKey":13,"DeleteActiveRow":127,"ExpandDetailTableKey":39,"CollapseDetailTableKey":37,"MoveDownKey":40,"MoveUpKey":38,"SaveChangesKey":85,"CancelChangesKey":81},"Animation":{},"Virtualization":{}},"Skin":"Proc","SortingSettings":{"SortToolTip":"Click here to sort","SortedAscToolTip":"Sorted asc","SortedDescToolTip":"Sorted desc","SortedBackColor":{"R":0,"G":0,"B":0,"A":0,"IsKnownColor":false,"IsEmpty":true,"IsNamedColor":false,"IsSystemColor":false,"Name":"0"},"EnableSkinSortStyles":true,"ShowNoSortIcons":false,"ViewState":{}},"UniqueID":"ctl00$mainContent$rgBidDocuments","_activeRowIndex":"","_controlToFocus":"","_currentPageIndex":0,"_defaultDateTimeFormat":"M/d/yyyy h:mm:ss tt","_editIndexes":"[]","_embeddedSkin":false,"_freezeText":"Freeze","_gridTableViewsData":"[{\"ClientID\":\"ctl00_mainContent_rgBidDocuments_ctl00\",\"UniqueID\":\"ctl00$mainContent$rgBidDocuments$ctl00\",\"PageSize\":15,\"PageCount\":1,\"EditMode\":\"EditForms\",\"AllowPaging\":true,\"CurrentPageIndex\":0,\"VirtualItemCount\":0,\"AllowMultiColumnSorting\":false,\"AllowNaturalSort\":true,\"AllowFilteringByColumn\":false,\"PageButtonCount\":10,\"HasDetailTables\":false,\"HasMultiHeaders\":false,\"CheckListWebServicePath\":\"\",\"GroupLoadMode\":\"Server\",\"PagerAlwaysVisible\":true,\"IsItemInserted\":false,\"clientDataKeyNames\":[],\"hasDetailItemTemplate\":false,\"_dataBindTemplates\":false,\"_selectedItemStyle\":\"\",\"_selectedItemStyleClass\":\"rgSelectedRow\",\"_columnsData\":[{\"UniqueName\":\"colFormatName\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"DataTypeName\":\"System.String\",\"DataField\":\"\",\"Display\":true},{\"UniqueName\":\"colFormatName\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"DataTypeName\":\"System.String\",\"DataField\":\"\",\"Display\":true},{\"UniqueName\":\"colFormType\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridBoundColumn\",\"ColumnGroupName\":\"\",\"Editable\":true,\"SortExpression\":\"FormType\",\"DataTypeName\":\"System.String\",\"DataField\":\"FormType\",\"Display\":false},{\"UniqueName\":\"colNewBidRequestParameterID\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridBoundColumn\",\"ColumnGroupName\":\"\",\"Editable\":true,\"SortExpression\":\"NewBidRequestParameterID\",\"DataTypeName\":\"System.Int32\",\"DataField\":\"NewBidRequestParameterID\",\"Display\":false}]}]","_masterClientID":"ctl00_mainContent_rgBidDocuments_ctl00","_shouldFocusOnPage":false,"_unfreezeText":"Unfreeze","allowMultiRowSelection":false,"clientStateFieldID":"ctl00_mainContent_rgBidDocuments_ClientState","expandItems":{},"renderMode":1}, null, null, $get("ctl00_mainContent_rgBidDocuments"));
+});
+//]]>
+</script>
+</form>
+	<script type="text/javascript">
+
+	</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"a066d9046a79460d9647771312757e34","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

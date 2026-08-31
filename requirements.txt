@@ -1,0 +1,11 @@
+yt-dlp>=2024.1.0
+faster-whisper>=1.0.0
+edge-tts>=6.1.0
+pydub>=0.25.1
+deep-translator>=1.11.4
+tqdm>=4.66.0
+
+# Optional, only needed if you run with --indictrans2:
+# torch
+# transformers
+# IndicTransToolkit @ git+https://github.com/VarunGumma/IndicTransToolkit.git
